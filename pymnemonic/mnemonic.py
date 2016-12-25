@@ -43,9 +43,9 @@ class PAOMnemonic(Mnemonic):
     def term(self, term):
 
         self._term = self.token_fn(term)
-        self._person = self.term[0]
-        self._action = self.term[1]
-        self._object = self.term[2]
+        self._person = self.person.map(self.term[0])
+        self._action = self.action.map(self.term[1])
+        self._object = self.object.map(self.term[2])
 
 class SequenceMnemonic(Mnemonic):
     """
